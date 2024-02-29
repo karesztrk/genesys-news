@@ -1,7 +1,7 @@
 import "@picocss/pico/css/pico.orange.min.css";
 import type { FC, PropsWithChildren } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
