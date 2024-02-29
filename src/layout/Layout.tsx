@@ -1,22 +1,24 @@
-import type { ReactNode } from "react";
+import "@picocss/pico/css/pico.orange.min.css";
+import type { FC, PropsWithChildren } from "react";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-export default function Layout({ children }: { children: ReactNode }) {
+const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light dark" />
+        <title>Genesys News</title>
       </head>
       <body>
-        <main>
-          <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
-          />
-          {children}
-        </main>
+        <Header />
+        <main className="container">{children}</main>
+        <Footer />
       </body>
     </html>
   );
-}
+};
+
+export default Layout;
