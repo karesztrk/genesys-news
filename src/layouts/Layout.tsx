@@ -11,6 +11,10 @@ const Layout: FC<PropsWithChildren> = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="color-scheme" content="light dark" />
         <title>Genesys News</title>
+        <meta
+          name="description"
+          content="Read Hacker News stories from Genesys"
+        />
       </head>
       <body>
         <Header />
