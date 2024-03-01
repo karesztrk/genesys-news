@@ -2,16 +2,27 @@
 import Layout from "@/layouts/Layout.astro";
 import { fetchStories } from "@/lib/api";
 import { categories, type Categories } from "@/lib/model";
+import Pagination from "@/components/Pagination";
 
-const isCategory = (c: string): c is Categories => c in categories;
+const isCategory = (c: string): c is Categories => Object.values(categories).includes(c);
 
-const category =
-  Astro.params.categories && isCategory(Astro.params.categories) ? Astro.params.categories : categories.top;
+const categoryParam = Astro.params.categories;
+const category = categoryParam && isCategory(categoryParam) ? categoryParam : categories.top;
 
-const stories = await fetchStories(category);
+const pageParam = Astro.url.searchParams.get("page");
+const page = !pageParam || isNaN(+pageParam) ? 1 : parseInt(pageParam);
+
+const stories = await fetchStories(category, page);
 ---
 
 <Layout>
-  <h1>Stories</h1>
+  <hgroup>
+    <h1>Stories</h1>
+    <p>
+      Read free, high quality news from Hacker News.
+    </p>
+  </hgroup>
   {stories.map((n) => <p>{n.title}</p>)}
+
+  <Pagination page={page} category={category} />
 </Layout>
