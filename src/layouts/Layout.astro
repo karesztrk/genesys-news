@@ -1,0 +1,24 @@
+---
+import "@picocss/pico/css/pico.orange.min.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+
+const current = Astro.url.pathname;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Genesys News</title>
+    <meta name="description" content="Read Hacker News stories from Genesys" />
+  </head>
+  <body>
+    <Header current={current} />
+    <main class="container">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

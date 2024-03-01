@@ -1,0 +1,11 @@
+ul {
+  li {
+    text-transform: capitalize;
+
+    &[aria-current] {
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+}

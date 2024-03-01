@@ -1,0 +1,17 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { fetchStories } from "@/lib/api";
+import { categories, type Categories } from "@/lib/model";
+
+const isCategory = (c: string): c is Categories => c in categories;
+
+const category =
+  Astro.params.categories && isCategory(Astro.params.categories) ? Astro.params.categories : categories.top;
+
+const stories = await fetchStories(category);
+---
+
+<Layout>
+  <h1>Stories</h1>
+  {stories.map((n) => <p>{n.title}</p>)}
+</Layout>
