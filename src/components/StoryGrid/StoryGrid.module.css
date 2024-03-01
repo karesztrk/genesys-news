@@ -1,0 +1,14 @@
+.story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 100px) 1fr;
+}
+
+.story {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+.points {
+  font-size: 1.5rem;
+}

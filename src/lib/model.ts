@@ -1,4 +1,4 @@
-import { number, object, string, type Output, nullable, array, picklist } from "valibot";
+import { number, object, string, type Output, nullable, optional, array, picklist } from "valibot";
 
 export const StoriesSchema = array(
   object({
@@ -11,6 +11,7 @@ export const StoriesSchema = array(
     comments_count: number(),
     type: string(),
     url: string(),
+    domain: optional(string()),
   }),
 );
 
@@ -22,7 +23,7 @@ export const categories = {
   show: "show",
   ask: "ask",
   jobs: "jobs",
-} as const;
+};
 
 export const CategorySchema = picklist(Object.values(categories));
 

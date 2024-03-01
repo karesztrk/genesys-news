@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import { fetchStories } from "@/lib/api";
 import { categories, type Categories } from "@/lib/model";
 import Pagination from "@/components/Pagination";
+import StoryGrid from "@/components/StoryGrid";
 
 const isCategory = (c: string): c is Categories => Object.values(categories).includes(c);
 
@@ -18,11 +19,15 @@ const stories = await fetchStories(category, page);
 <Layout>
   <hgroup>
     <h1>Stories</h1>
-    <p>
-      Read free, high quality news from Hacker News.
-    </p>
+    <p>Read free, high quality news from Hacker News.</p>
   </hgroup>
-  {stories.map((n) => <p>{n.title}</p>)}
 
-  <Pagination page={page} category={category} />
+  <section>
+    <StoryGrid stories={stories} />
+
+    <Pagination page={page} category={category} />
+    <pre>
+    <code>{JSON.stringify(stories, null, 2)}</code>
+  </pre>
+  </section>
 </Layout>
