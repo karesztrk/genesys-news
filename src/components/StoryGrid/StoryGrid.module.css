@@ -1,5 +1,5 @@
 .story-grid {
-  --_gap: 1rem;
+  --_gap: var(--pico-spacing);
   display: grid;
   grid-template-columns: fit-content(100px) 1fr;
   gap: var(--_gap);
