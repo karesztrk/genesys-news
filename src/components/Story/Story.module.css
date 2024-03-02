@@ -1,0 +1,44 @@
+.story {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-areas: "points content";
+}
+
+.points {
+  grid-area: points;
+  text-align: center;
+  color: var(--pico-muted-color);
+}
+
+.content {
+  grid-area: content;
+  container: content / inline-size;
+}
+
+.details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--_gap);
+  color: var(--pico-muted-color);
+}
+
+.source {
+  @container content (width > 850px) {
+    margin-inline-start: auto;
+  }
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.upvote-button {
+  display: block;
+  padding: 12px 10px;
+
+  svg {
+    display: block;
+    height: 12px;
+  }
+}

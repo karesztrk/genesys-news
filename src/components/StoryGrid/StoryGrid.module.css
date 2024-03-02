@@ -1,14 +1,6 @@
 .story-grid {
+  --_gap: 1rem;
   display: grid;
-  grid-template-columns: minmax(0, 100px) 1fr;
-}
-
-.story {
-  grid-column: span 2;
-  display: grid;
-  grid-template-columns: subgrid;
-}
-
-.points {
-  font-size: 1.5rem;
+  grid-template-columns: fit-content(100px) 1fr;
+  gap: var(--_gap);
 }

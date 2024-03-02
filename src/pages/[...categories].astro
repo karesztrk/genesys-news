@@ -26,8 +26,5 @@ const stories = await fetchStories(category, page);
     <StoryGrid stories={stories} />
 
     <Pagination page={page} category={category} />
-    <pre>
-    <code>{JSON.stringify(stories, null, 2)}</code>
-  </pre>
   </section>
 </Layout>
