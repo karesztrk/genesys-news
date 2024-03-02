@@ -1,16 +1,16 @@
 import type { Stories } from "@/lib/model";
-import { type FC } from "react";
+import { type FC, type ComponentPropsWithoutRef } from "react";
 import styles from "./Story.module.css";
 
-interface GridProps {
+interface StoryProps extends ComponentPropsWithoutRef<"article"> {
   story: Stories[number];
 }
 
-const Grid: FC<GridProps> = ({ story }) => {
+const Story: FC<StoryProps> = ({ story, ...rest }) => {
   return (
-    <article key={story.id} className={styles.story}>
+    <article className={styles.story} {...rest}>
       <div className={styles.points}>
-        <button className={`outline ${styles["upvote-button"]}`}>
+        <button className={`outline ${styles["upvote-button"]}`} aria-label="Upvote">
           <svg width="14" height="12" viewBox="0 0 14 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 0L13.9282 12H0.0717969L7 0Z" fill="currentColor" />
           </svg>
@@ -48,4 +48,4 @@ const Grid: FC<GridProps> = ({ story }) => {
   );
 };
 
-export default Grid;
+export default Story;

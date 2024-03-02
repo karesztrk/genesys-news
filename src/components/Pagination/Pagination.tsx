@@ -3,10 +3,10 @@ import styles from "./Pagination.module.css";
 
 interface PaginationProps {
   page?: number;
-  category: string;
+  category?: string;
 }
 
-const Pagination: FC<PaginationProps> = ({ category, page = 1 }) => {
+const Pagination: FC<PaginationProps> = ({ category = "", page = 1 }) => {
   return (
     <div role="group" className={styles.pagination}>
       {page > 1 && (

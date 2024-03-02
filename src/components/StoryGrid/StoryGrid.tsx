@@ -9,9 +9,9 @@ interface GridProps {
 
 const Grid: FC<GridProps> = ({ stories }) => {
   return (
-    <div className={styles["story-grid"]}>
+    <div className={styles["story-grid"]} role="list">
       {stories.map((story) => (
-        <Story key={story.id} story={story} />
+        <Story key={story.id} story={story} role="listitem" />
       ))}
     </div>
   );
