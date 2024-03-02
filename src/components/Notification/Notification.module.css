@@ -1,0 +1,16 @@
+.notification {
+  --_color-danger: #d93526;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+}
+
+.exclamation {
+  color: var(--_color-danger);
+  height: 1lh;
+  margin-inline-end: calc(var(--pico-spacing) / 4);
+}
+
+.message {
+  margin: 0;
+}

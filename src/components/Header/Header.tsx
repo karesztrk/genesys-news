@@ -12,7 +12,7 @@ const Header: FC<HeaderProps> = ({ current }) => {
       <nav>
         <ul>
           <li>
-            <a href="/" className="contrast">
+            <a href="/" className={`contrast ${styles.home}`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 19 31"
