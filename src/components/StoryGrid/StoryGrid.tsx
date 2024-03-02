@@ -1,18 +1,10 @@
-import type { Stories } from "@/lib/model";
-import { type FC } from "react";
+import { type FC, type PropsWithChildren } from "react";
 import styles from "./StoryGrid.module.css";
-import Story from "../Story";
 
-interface GridProps {
-  stories: Stories;
-}
-
-const Grid: FC<GridProps> = ({ stories }) => {
+const Grid: FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className={styles["story-grid"]} role="list">
-      {stories.map((story) => (
-        <Story key={story.id} story={story} role="listitem" />
-      ))}
+      {children}
     </div>
   );
 };

@@ -1,11 +1,9 @@
 .pagination {
-  --_content-max-width: 350px;
   --_gap: var(--pico-spacing);
-  width: min(var(--_content-max-width), 100%);
-  margin-inline: auto;
   gap: var(--_gap);
+  max-width: 350px;
+}
 
-  & > a {
-    flex: 1;
-  }
+.pagination-button {
+  flex: 1;
 }
