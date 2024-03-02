@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import "./Footer.module.css";
 
 const year = new Date().getFullYear();
 

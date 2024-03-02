@@ -21,6 +21,7 @@
   flex-wrap: wrap;
   gap: var(--_gap);
   color: var(--pico-muted-color);
+  font-family: var(--pico-font-family-monospace);
 }
 
 .source {

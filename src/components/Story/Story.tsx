@@ -19,24 +19,28 @@ const Grid: FC<GridProps> = ({ story }) => {
       </div>
       <div className={styles.content}>
         <p className={styles.title}>
-          <strong>{story.title}</strong>
+          <strong>
+            <a href={story.url} className="contrast" target="_blank" rel="noreferrer">
+              {story.title}
+            </a>
+          </strong>
         </p>
         <div className={styles.details}>
-          <div>
+          <small>
             u/
             <a href={`https://news.ycombinator.com/user?id=${story.user}`} target="_blank" rel="noreferrer">
               {story.user}
             </a>
-          </div>
-          <div>{story.time_ago}</div>
-          <div>[{story.comments_count} Comments]</div>
+          </small>
+          <small>{story.time_ago}</small>
+          <small>[{story.comments_count} Comments]</small>
           {story.domain && (
-            <div className={styles.source}>
+            <small className={styles.source}>
               src/
               <a href={story.domain} target="_blank" rel="noreferrer">
                 {story.domain}
               </a>
-            </div>
+            </small>
           )}
         </div>
       </div>
