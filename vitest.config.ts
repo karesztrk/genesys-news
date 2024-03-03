@@ -6,8 +6,10 @@ export default getViteConfig({
     environment: "jsdom",
     setupFiles: "./src/test/setup.ts",
     include: ["**/*.test.[jt]s?(x)"],
+    exclude: ["**/node_modules/**", "**/e2e/**"],
     coverage: {
       include: ["src/**/*"],
+      exclude: ["src/test/**", "src/env.d.ts"],
     },
   },
 });

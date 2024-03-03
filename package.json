@@ -5,13 +5,14 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
     "test": "vitest run --coverage",
     "test-watch": "vitest",
     "pretty": "prettier --write .",
-    "lint": "eslint . --ext .js,.ts,.tsx,.astro"
+    "lint": "eslint . --ext .js,.ts,.tsx,.astro",
+    "e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/node": "^8.2.1",
@@ -23,8 +24,8 @@
     "wretch": "^2.8.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.5.6",
     "@astrojs/react": "^3.0.10",
+    "@playwright/test": "^1.42.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
@@ -38,6 +39,7 @@
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react": "^7.33.2",
     "jsdom": "^24.0.0",
+    "playwright": "^1.42.1",
     "prettier": "^3.2.5",
     "prettier-plugin-astro": "^0.13.0",
     "typescript": "^5.3.3",

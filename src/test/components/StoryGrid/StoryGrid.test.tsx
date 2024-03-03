@@ -6,6 +6,6 @@ describe("StoryGrid", () => {
   test("renders grid with a single item", () => {
     render(<StoryGrid />);
 
-    expect(screen.getByRole("list")).toBeInTheDocument();
+    expect(screen.getByRole("list", { name: "Stories" })).toBeInTheDocument();
   });
 });
