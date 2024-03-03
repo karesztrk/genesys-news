@@ -22,7 +22,6 @@ describe("Story", () => {
     render(<Story story={story} />);
 
     expect(screen.getByRole("article")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Upvote" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: story.title })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: user })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: story.domain })).toBeInTheDocument();

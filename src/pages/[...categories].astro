@@ -6,6 +6,7 @@ import Pagination from "@/components/Pagination";
 import StoryGrid from "@/components/StoryGrid";
 import Story from "@/components/Story";
 import Notification from "@/components/Notification";
+import StoryPoints from "@/components/StoryPoints";
 
 const isCategory = (c: string): c is Categories => Object.values(categories).includes(c);
 
@@ -38,7 +39,9 @@ try {
         <>
           <StoryGrid>
             {stories.map((story) => (
-              <Story key={story.id} story={story} role="listitem" />
+              <Story key={story.id} story={story} role="listitem">
+                <StoryPoints slot="storyPoints" points={story.points} client:visible/>
+              </Story>
             ))}
           </StoryGrid>
           <Pagination page={page} category={category} />

@@ -1,0 +1,16 @@
+.points {
+  grid-area: points;
+  text-align: center;
+  color: var(--pico-muted-color);
+  font-family: var(--pico-font-family-monospace);
+}
+
+.upvote-button {
+  display: block;
+  padding: 12px 10px;
+
+  svg {
+    display: block;
+    height: 12px;
+  }
+}

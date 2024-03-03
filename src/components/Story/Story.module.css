@@ -5,13 +5,6 @@
   grid-template-areas: "points content";
 }
 
-.points {
-  grid-area: points;
-  text-align: center;
-  color: var(--pico-muted-color);
-  font-family: var(--pico-font-family-monospace);
-}
-
 .content {
   grid-area: content;
   container: content / inline-size;
@@ -34,14 +27,4 @@
 .title {
   font-size: 1.25rem;
   margin-block-end: 0.75rem;
-}
-
-.upvote-button {
-  display: block;
-  padding: 12px 10px;
-
-  svg {
-    display: block;
-    height: 12px;
-  }
 }
