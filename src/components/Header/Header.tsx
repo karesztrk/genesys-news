@@ -31,11 +31,11 @@ const Header: FC<HeaderProps> = ({ current }) => {
           </li>
         </ul>
         <ul className={styles.menu}>
-          {Object.entries(categories).map(([name, path]) => {
-            const currentPage = current === `/${path}` ? "page" : undefined;
+          {Object.keys(categories).map((name) => {
+            const currentPage = current === `/${name}` ? "page" : undefined;
             return (
-              <li key={path} aria-current={currentPage}>
-                <a href={`/${path}`}>{name}</a>
+              <li key={name} aria-current={currentPage}>
+                <a href={`/${name}`}>{name}</a>
               </li>
             );
           })}

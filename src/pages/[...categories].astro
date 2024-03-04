@@ -1,17 +1,17 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { fetchStories } from "@/lib/api";
-import { categories, type Categories, type Stories } from "@/lib/model";
+import { categories, type Stories } from "@/lib/model";
 import Pagination from "@/components/Pagination";
 import StoryGrid from "@/components/StoryGrid";
 import Story from "@/components/Story";
 import Notification from "@/components/Notification";
 import StoryPoints from "@/components/StoryPoints";
 
-const isCategory = (c: string): c is Categories => Object.values(categories).includes(c);
+const isCategory = (c: string): c is keyof typeof categories => Object.keys(categories).includes(c);
 
 const categoryParam = Astro.params.categories;
-const category = categoryParam && isCategory(categoryParam) ? categoryParam : categories.top;
+const category = categoryParam && isCategory(categoryParam) ? categories[categoryParam] : categories.top;
 
 const pageParam = Astro.url.searchParams.get("page");
 const page = !pageParam || isNaN(+pageParam) ? 1 : parseInt(pageParam);
@@ -40,7 +40,7 @@ try {
           <StoryGrid>
             {stories.map((story) => (
               <Story key={story.id} story={story} role="listitem">
-                <StoryPoints slot="storyPoints" points={story.points} client:visible/>
+                <StoryPoints slot="storyPoints" points={story.score} client:visible />
               </Story>
             ))}
           </StoryGrid>

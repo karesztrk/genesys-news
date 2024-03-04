@@ -1,28 +1,38 @@
-import { number, object, string, type Output, nullable, optional, array, picklist } from "valibot";
+import { number, object, string, type Output, array, picklist, optional, transform } from "valibot";
+import { elapsedMinutes } from "./util";
 
-export const StoriesSchema = array(
-  object({
-    id: number(),
-    title: string(),
-    points: nullable(number()),
-    user: nullable(string()),
-    time: number(),
-    time_ago: string(),
-    comments_count: number(),
-    type: string(),
-    url: string(),
-    domain: optional(string()),
-  }),
+export const ItemIdsSchema = array(number());
+
+export type ItemIds = Output<typeof ItemIdsSchema>;
+
+export const StoriesSchema = transform(
+  array(
+    object({
+      by: string(),
+      descendants: optional(number()),
+      id: number(),
+      score: number(),
+      time: number(),
+      title: string(),
+      type: string(),
+      url: optional(string()),
+    }),
+  ),
+  (input) =>
+    input.map((item) => ({
+      ...item,
+      time_ago: elapsedMinutes(item.time),
+    })),
 );
 
 export type Stories = Output<typeof StoriesSchema>;
 
 export const categories = {
-  top: "news",
-  new: "newest",
-  show: "show",
-  ask: "ask",
-  jobs: "jobs",
+  top: "topstories",
+  new: "newstories",
+  show: "showstories",
+  ask: "askstories",
+  jobs: "jobstories",
 };
 
 export const CategorySchema = picklist(Object.values(categories));

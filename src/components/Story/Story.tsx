@@ -1,6 +1,7 @@
 import type { Stories } from "@/lib/model";
 import { type FC, type ComponentPropsWithoutRef } from "react";
 import styles from "./Story.module.css";
+import { elapsed } from "./Story.util";
 
 interface StoryProps extends ComponentPropsWithoutRef<"article"> {
   story: Stories[number];
@@ -8,6 +9,8 @@ interface StoryProps extends ComponentPropsWithoutRef<"article"> {
 }
 
 const Story: FC<StoryProps> = ({ story, storyPoints, ...rest }) => {
+  const url = story.url && new URL(story.url);
+  const date = elapsed(story.time_ago);
   return (
     <article className={styles.story} {...rest}>
       {storyPoints}
@@ -22,17 +25,17 @@ const Story: FC<StoryProps> = ({ story, storyPoints, ...rest }) => {
         <div className={styles.details}>
           <small>
             u/
-            <a href={`https://news.ycombinator.com/user?id=${story.user}`} target="_blank" rel="noreferrer">
-              {story.user}
+            <a href={`https://news.ycombinator.com/user?id=${story.by}`} target="_blank" rel="noreferrer">
+              {story.by}
             </a>
           </small>
-          <small>{story.time_ago}</small>
-          <small>[{story.comments_count} Comments]</small>
-          {story.domain && (
+          <small>{date}</small>
+          <small>[{story.descendants} Comments]</small>
+          {url && (
             <small className={styles.source}>
               src/
-              <a href={story.domain} target="_blank" rel="noreferrer">
-                {story.domain}
+              <a href={url.origin} target="_blank" rel="noreferrer">
+                {url.hostname}
               </a>
             </small>
           )}

@@ -6,17 +6,17 @@ import type { Stories } from "@/lib/model";
 describe("Story", () => {
   test("renders a story", () => {
     const user = "john";
+    const url = "http://www.example.com";
     const story: Stories[number] = {
       id: Math.floor(Math.random() * 1000),
       title: "Story title",
-      points: 24,
-      user,
+      score: 24,
+      by: user,
       time: 1709182389,
-      time_ago: "2 days ago",
-      comments_count: 4,
+      descendants: 4,
       type: "link",
-      url: "http://www.example.com",
-      domain: "example.com",
+      url,
+      time_ago: 4 * 60,
     };
 
     render(<Story story={story} />);
@@ -24,6 +24,6 @@ describe("Story", () => {
     expect(screen.getByRole("article")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: story.title })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: user })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: story.domain })).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: new URL(url).hostname })).toBeInTheDocument();
   });
 });

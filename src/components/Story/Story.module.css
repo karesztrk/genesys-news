@@ -19,7 +19,7 @@
 }
 
 .source {
-  @container content (width > 600px) {
+  @container content (width > 856px) {
     margin-inline-start: auto;
   }
 }
