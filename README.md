@@ -1,6 +1,6 @@
 # Genesys News
 
-![[index.jpg]]
+![Screenshot](index.jpg)
 
 A [Hacker News](https://news.ycombinator.com/) clone application. The project itself is homework for Genesys. That's how the name originated.
 
